@@ -31,7 +31,7 @@ unsafe impl<'a, T: std::default::Default + std::marker::Copy> Send for Socket<'a
 #[derive(Debug)]
 pub struct SocketRx<'a, T: std::default::Default + std::marker::Copy> {
     socket: Arc<Socket<'a, T>>,
-    fd: std::os::raw::c_int,
+    pub fd: std::os::raw::c_int,
     rx: Box<xsk_ring_cons>,
 }
 unsafe impl<'a, T: std::default::Default + std::marker::Copy> Send for SocketRx<'a, T> {}
