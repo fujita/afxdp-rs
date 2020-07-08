@@ -23,7 +23,7 @@ unsafe impl<'a, T: std::default::Default + std::marker::Copy> Send for Umem<'a, 
 #[derive(Debug)]
 pub struct UmemCompletionQueue<'a, T: std::default::Default + std::marker::Copy> {
     umem: Arc<Umem<'a, T>>,
-    cq: Box<xsk_ring_cons>,
+    pub cq: Box<xsk_ring_cons>,
 }
 unsafe impl<'a, T: std::default::Default + std::marker::Copy> Send for UmemCompletionQueue<'a, T> {}
 
@@ -31,7 +31,7 @@ unsafe impl<'a, T: std::default::Default + std::marker::Copy> Send for UmemCompl
 #[derive(Debug)]
 pub struct UmemFillQueue<'a, T: std::default::Default + std::marker::Copy> {
     umem: Arc<Umem<'a, T>>,
-    fq: Box<xsk_ring_prod>,
+    pub fq: Box<xsk_ring_prod>,
 }
 unsafe impl<'a, T: std::default::Default + std::marker::Copy> Send for UmemFillQueue<'a, T> {}
 
